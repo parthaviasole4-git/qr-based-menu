@@ -5,8 +5,10 @@ import { useState } from "react";
 export default function Home() {
   const [consent, setConsent] = useState(true);
 
-  // If consent is true, the message includes "yes", which the webhook detects to save to the database.
-  const message = consent ? "Hi yes, I want the menu" : "Hi, I want the menu";
+  // Consent YES = clean message. Consent NO = append 'no-promo' keyword.
+  const message = consent
+    ? "Hi, I want the menu"
+    : "Hi, I want the menu. no-promo";
   const waLink = `https://wa.me/14155238886?text=${encodeURIComponent(message)}`;
 
   return (

@@ -23,8 +23,8 @@ export async function POST(request: Request) {
 
     console.log(`[Webhook] Incoming message from ${from}: ${body}`);
 
-    // Detect consent: if message includes "yes" (case-insensitive) -> true
-    const hasConsent = body.toLowerCase().includes('yes');
+    // Detect consent: if message contains 'no-promo', user opted out
+    const hasConsent = !body.toLowerCase().includes('no-promo');
 
     // 1. Save user to database (wrapped in try/catch so DB timeouts don't break the bot)
     try {
