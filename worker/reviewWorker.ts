@@ -13,7 +13,8 @@ const worker = new Worker(
     const { phone } = job.data;
     console.log(`[Worker] Processing review job ${job.id} for phone ${phone}`);
 
-    const reviewUrl = process.env.REVIEW_URL || 'https://your-review-link.com';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || process.env.REVIEW_URL || 'http://localhost:3000';
+    const reviewUrl = `${baseUrl}/review?phone=${encodeURIComponent(phone)}`;
     const reviewMessage = `😊 Hope you enjoyed! \nPlease review us: \n${reviewUrl}`;
 
     try {

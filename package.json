@@ -10,6 +10,7 @@
     "worker": "tsx worker/reviewWorker.ts"
   },
   "dependencies": {
+    "@ngrok/ngrok": "^1.7.0",
     "@supabase/ssr": "^0.10.3",
     "@supabase/supabase-js": "^2.105.4",
     "bullmq": "^5.76.5",
